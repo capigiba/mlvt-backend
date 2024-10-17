@@ -12,7 +12,7 @@ import (
 
 type UserService interface {
 	RegisterUser(user *entity.User) error
-	Login(email, password string) (string, error)
+	Login(email, password string) (string, uint64, error)
 	ChangePassword(userID uint64, oldPassword, newPassword string) error
 	UpdateUser(user *entity.User) error
 	UpdateAvatar(userID uint64, avatarPath, avatarFolder string) error
@@ -52,7 +52,7 @@ func (s *userService) RegisterUser(user *entity.User) error {
 }
 
 // Login handles user login
-func (s *userService) Login(email, password string) (string, error) {
+func (s *userService) Login(email, password string) (string, uint64, error) {
 	return s.auth.Login(email, password)
 }
 

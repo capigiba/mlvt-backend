@@ -19,7 +19,8 @@ type MessageResponse struct {
 
 // TokenResponse represents the response containing a token
 type TokenResponse struct {
-	Token string `json:"token"`
+	Token  string `json:"token"`
+	UserID uint64 `json:"user_id"`
 }
 
 // AvatarDownloadURLResponse represents the response containing avatar download URL
